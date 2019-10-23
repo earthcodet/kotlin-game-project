@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="gameTextSize">25sp</dimen>
+    <dimen name="gameTimeSize">20sp</dimen>
+    <dimen name="font35sp">35sp</dimen>
+    <dimen name="font40sp">40sp</dimen>
+</resources>

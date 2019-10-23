@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".GameFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/levelText"
+                android:layout_width="98dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="130dp"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginRight="52dp"
+                android:text="@string/levelText"
+                android:textSize="@dimen/gameTextSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/scroeText"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/scroeText"
+                android:layout_width="98dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginLeft="33dp"
+                android:layout_marginTop="35dp"
+                android:text="@string/scoreText"
+                android:textSize="@dimen/gameTextSize"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/timeText"
+                android:layout_width="94dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginEnd="272dp"
+                android:layout_marginRight="272dp"
+                android:text="@string/timeText"
+                android:textSize="@dimen/gameTimeSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scroeText" />
+
+            <Button
+                android:id="@+id/play1Button"
+                android:layout_width="115dp"
+                android:layout_height="111dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginLeft="31dp"
+                android:layout_marginTop="49dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/timeText" />
+
+            <Button
+                android:id="@+id/play2Button"
+                android:layout_width="115dp"
+                android:layout_height="111dp"
+                android:layout_marginTop="185dp"
+                app:layout_constraintEnd_toStartOf="@+id/play3Button"
+                app:layout_constraintStart_toEndOf="@+id/play1Button"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/play3Button"
+                android:layout_width="115dp"
+                android:layout_height="111dp"
+                android:layout_marginTop="117dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginRight="35dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/levelText" />
+
+            <Button
+                android:id="@+id/play4Button"
+                android:layout_width="115dp"
+                android:layout_height="111dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginLeft="31dp"
+                android:layout_marginTop="1dp"
+                app:layout_constraintBottom_toTopOf="@+id/play7Button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/play1Button" />
+
+            <Button
+                android:id="@+id/play5Button"
+                android:layout_width="115dp"
+                android:layout_height="111dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintBottom_toTopOf="@+id/play8Button"
+                app:layout_constraintEnd_toStartOf="@+id/play6Button"
+                app:layout_constraintStart_toEndOf="@+id/play4Button"
+                app:layout_constraintTop_toBottomOf="@+id/play2Button" />
+
+            <Button
+                android:id="@+id/play6Button"
+                android:layout_width="115dp"
+                android:layout_height="111dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginRight="35dp"
+                app:layout_constraintBottom_toTopOf="@+id/play9Button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/play3Button" />
+
+            <Button
+                android:id="@+id/play7Button"
+                android:layout_width="115dp"
+                android:layout_height="111dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginLeft="31dp"
+                android:layout_marginBottom="91dp"
+                app:layout_constraintBottom_toTopOf="@+id/heart1"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/play8Button"
+                android:layout_width="115dp"
+                android:layout_height="111dp"
+                android:layout_marginBottom="91dp"
+                app:layout_constraintBottom_toTopOf="@+id/heart2"
+                app:layout_constraintEnd_toStartOf="@+id/play9Button"
+                app:layout_constraintStart_toEndOf="@+id/play7Button" />
+
+            <Button
+                android:id="@+id/play9Button"
+                android:layout_width="115dp"
+                android:layout_height="111dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginBottom="91dp"
+                app:layout_constraintBottom_toTopOf="@+id/heart3"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/heart1"
+                android:layout_width="77dp"
+                android:layout_height="74dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginLeft="33dp"
+                android:layout_marginBottom="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/heart2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/heart" />
+
+            <ImageView
+                android:id="@+id/heart2"
+                android:layout_width="77dp"
+                android:layout_height="74dp"
+                android:layout_marginBottom="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/heart3"
+                app:layout_constraintStart_toEndOf="@+id/heart1"
+                app:srcCompat="@drawable/heart" />
+
+            <ImageView
+                android:id="@+id/heart3"
+                android:layout_width="77dp"
+                android:layout_height="74dp"
+                android:layout_marginBottom="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/heart2"
+                app:srcCompat="@drawable/heart" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="137dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginBottom="48dp"
+                android:text="@string/endText"
+                android:textSize="@dimen/gameTimeSize"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/heart3"
+                app:layout_constraintTop_toBottomOf="@+id/play9Button" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>
+
