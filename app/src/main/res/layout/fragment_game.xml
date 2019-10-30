@@ -7,189 +7,165 @@
         android:layout_height="match_parent"
         tools:context=".GameFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/levelText"
-                android:layout_width="98dp"
-                android:layout_height="33dp"
-                android:layout_marginStart="130dp"
-                android:layout_marginLeft="130dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="52dp"
-                android:layout_marginRight="52dp"
-                android:text="@string/levelText"
-                android:textSize="@dimen/gameTextSize"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/scroeText"
-                app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/scroeText"
-                android:layout_width="98dp"
-                android:layout_height="33dp"
-                android:layout_marginStart="33dp"
-                android:layout_marginLeft="33dp"
-                android:layout_marginTop="35dp"
-                android:text="@string/scoreText"
-                android:textSize="@dimen/gameTextSize"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="119dp"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/timeText"
-                android:layout_width="94dp"
-                android:layout_height="68dp"
-                android:layout_marginStart="45dp"
-                android:layout_marginLeft="45dp"
-                android:layout_marginEnd="272dp"
-                android:layout_marginRight="272dp"
-                android:text="@string/timeText"
-                android:textSize="@dimen/gameTimeSize"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/scroeText" />
+                    <TextView
+                        android:id="@+id/scroeText"
+                        android:layout_width="178dp"
+                        android:layout_height="33dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="35dp"
+                        android:text="@string/scoreText"
+                        android:textSize="@dimen/gameTextSize" />
 
-            <Button
-                android:id="@+id/play1Button"
-                android:layout_width="115dp"
-                android:layout_height="111dp"
-                android:layout_marginStart="31dp"
-                android:layout_marginLeft="31dp"
-                android:layout_marginTop="49dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/timeText" />
+                    <TextView
+                        android:id="@+id/timeText"
+                        android:layout_width="157dp"
+                        android:layout_height="32dp"
+                        android:layout_marginLeft="30dp"
+                        android:text="@string/timeText"
+                        android:textSize="@dimen/gameTimeSize" />
+                </LinearLayout>
 
-            <Button
-                android:id="@+id/play2Button"
-                android:layout_width="115dp"
-                android:layout_height="111dp"
-                android:layout_marginTop="185dp"
-                app:layout_constraintEnd_toStartOf="@+id/play3Button"
-                app:layout_constraintStart_toEndOf="@+id/play1Button"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/levelText"
+                    android:layout_width="192dp"
+                    android:layout_height="33dp"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginEnd="52dp"
+                    android:layout_marginRight="52dp"
+                    android:gravity="center"
+                    android:text="@string/levelText"
+                    android:textSize="@dimen/gameTextSize" />
 
-            <Button
-                android:id="@+id/play3Button"
-                android:layout_width="115dp"
-                android:layout_height="111dp"
-                android:layout_marginTop="117dp"
-                android:layout_marginEnd="35dp"
-                android:layout_marginRight="35dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/levelText" />
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/play4Button"
-                android:layout_width="115dp"
-                android:layout_height="111dp"
-                android:layout_marginStart="31dp"
-                android:layout_marginLeft="31dp"
-                android:layout_marginTop="1dp"
-                app:layout_constraintBottom_toTopOf="@+id/play7Button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/play1Button" />
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="375dp">
 
-            <Button
-                android:id="@+id/play5Button"
-                android:layout_width="115dp"
-                android:layout_height="111dp"
-                android:layout_marginTop="2dp"
-                app:layout_constraintBottom_toTopOf="@+id/play8Button"
-                app:layout_constraintEnd_toStartOf="@+id/play6Button"
-                app:layout_constraintStart_toEndOf="@+id/play4Button"
-                app:layout_constraintTop_toBottomOf="@+id/play2Button" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
-            <Button
-                android:id="@+id/play6Button"
-                android:layout_width="115dp"
-                android:layout_height="111dp"
-                android:layout_marginEnd="35dp"
-                android:layout_marginRight="35dp"
-                app:layout_constraintBottom_toTopOf="@+id/play9Button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/play3Button" />
+                    <Button
+                        android:id="@+id/play1button"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp" />
 
-            <Button
-                android:id="@+id/play7Button"
-                android:layout_width="115dp"
-                android:layout_height="111dp"
-                android:layout_marginStart="31dp"
-                android:layout_marginLeft="31dp"
-                android:layout_marginBottom="91dp"
-                app:layout_constraintBottom_toTopOf="@+id/heart1"
-                app:layout_constraintStart_toStartOf="parent" />
+                    <Button
+                        android:id="@+id/play2button"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp" />
 
-            <Button
-                android:id="@+id/play8Button"
-                android:layout_width="115dp"
-                android:layout_height="111dp"
-                android:layout_marginBottom="91dp"
-                app:layout_constraintBottom_toTopOf="@+id/heart2"
-                app:layout_constraintEnd_toStartOf="@+id/play9Button"
-                app:layout_constraintStart_toEndOf="@+id/play7Button" />
+                    <Button
+                        android:id="@+id/play3button"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp" />
 
-            <Button
-                android:id="@+id/play9Button"
-                android:layout_width="115dp"
-                android:layout_height="111dp"
-                android:layout_marginEnd="35dp"
-                android:layout_marginRight="35dp"
-                android:layout_marginBottom="91dp"
-                app:layout_constraintBottom_toTopOf="@+id/heart3"
-                app:layout_constraintEnd_toEndOf="parent" />
+                </TableRow>
 
-            <ImageView
-                android:id="@+id/heart1"
-                android:layout_width="77dp"
-                android:layout_height="74dp"
-                android:layout_marginStart="33dp"
-                android:layout_marginLeft="33dp"
-                android:layout_marginBottom="48dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/heart2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/heart" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
-            <ImageView
-                android:id="@+id/heart2"
-                android:layout_width="77dp"
-                android:layout_height="74dp"
-                android:layout_marginBottom="48dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/heart3"
-                app:layout_constraintStart_toEndOf="@+id/heart1"
-                app:srcCompat="@drawable/heart" />
+                    <Button
+                        android:id="@+id/play4button"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp" />
 
-            <ImageView
-                android:id="@+id/heart3"
-                android:layout_width="77dp"
-                android:layout_height="74dp"
-                android:layout_marginBottom="48dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/heart2"
-                app:srcCompat="@drawable/heart" />
+                    <Button
+                        android:id="@+id/play5button"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="22dp"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="137dp"
-                android:layout_marginEnd="35dp"
-                android:layout_marginRight="35dp"
-                android:layout_marginBottom="48dp"
-                android:text="@string/endText"
-                android:textSize="@dimen/gameTimeSize"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/heart3"
-                app:layout_constraintTop_toBottomOf="@+id/play9Button" />
+                    <Button
+                        android:id="@+id/play6button"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/play7button"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp" />
+
+                    <Button
+                        android:id="@+id/play8button"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp" />
+
+                    <Button
+                        android:id="@+id/play9button"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp" />
+                </TableRow>
+
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="93dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/heart1"
+                    android:layout_width="96dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="5dp"
+                    app:srcCompat="@drawable/heart" />
+
+                <ImageView
+                    android:id="@+id/heart2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/heart" />
+
+                <ImageView
+                    android:id="@+id/heart3"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/heart" />
+
+                <TextView
+                    android:id="@+id/endGameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="67dp"
+                    android:layout_weight="1"
+                    android:text="@string/endText" />
+            </LinearLayout>
+
+        </LinearLayout>
+
     </FrameLayout>
 </layout>
 

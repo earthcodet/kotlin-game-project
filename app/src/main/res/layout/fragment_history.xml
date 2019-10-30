@@ -17,28 +17,33 @@
                 android:id="@+id/iconHistory"
                 android:layout_width="224dp"
                 android:layout_height="198dp"
+                android:layout_marginTop="60dp"
                 android:src="@drawable/history"
-                tools:layout_editor_absoluteX="93dp"
-                tools:layout_editor_absoluteY="94dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/TopicText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="@string/historyText"
                 android:textSize="@dimen/font40sp"
-                tools:layout_editor_absoluteX="124dp"
-                tools:layout_editor_absoluteY="314dp"
-                tools:text="@string/historyText" />
+                app:layout_constraintEnd_toEndOf="@+id/iconHistory"
+                app:layout_constraintStart_toStartOf="@+id/iconHistory"
+                app:layout_constraintTop_toBottomOf="@+id/iconHistory" />
 
             <ScrollView
-                android:layout_width="362dp"
-                android:layout_height="324dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="376dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_width="376dp"
+                android:layout_height="394dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginRight="25dp"
+                app:layout_constraintEnd_toEndOf="@+id/TopicText"
+                app:layout_constraintHorizontal_bias="0.446"
+                app:layout_constraintStart_toStartOf="@+id/TopicText"
+                app:layout_constraintTop_toBottomOf="@+id/TopicText">
 
                 <TextView
                     android:id="@+id/historyText"

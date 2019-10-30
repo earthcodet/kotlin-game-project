@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.s59160969.least.databinding.FragmentHomeBinding
 
 /**
@@ -18,6 +19,13 @@ class HomeFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater,
             R.layout.fragment_home,container,false)
+        binding.startGameButton.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_homeFragment_to_gameFragment)
+        }
+        binding.chartButton.setOnClickListener{
+                view : View ->
+            view.findNavController().navigate(R.id.action_homeFragment_to_historyFragment)
+        }
         return binding.root
     }
 

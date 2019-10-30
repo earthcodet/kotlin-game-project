@@ -14,123 +14,93 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="222dp"
-            android:layout_height="286dp"
-            android:layout_marginStart="94dp"
-            android:layout_marginLeft="94dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="95dp"
-            android:layout_marginRight="95dp"
-            android:src="@drawable/win"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="210dp"
-            android:layout_height="71dp"
-            android:layout_marginStart="99dp"
-            android:layout_marginLeft="99dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="102dp"
-            android:layout_marginRight="102dp"
-            android:layout_marginBottom="5dp"
-            android:gravity="center"
-            android:text="@string/youScoreText"
-            android:textSize="@dimen/font40sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            tools:text="@string/testScore" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="206dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="101dp"
-            android:layout_marginLeft="101dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="104dp"
-            android:layout_marginRight="104dp"
-            android:layout_marginBottom="6dp"
-            android:gravity="center"
-            android:text="@string/youScoreText"
-            android:textSize="@dimen/font35sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="207dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="102dp"
-            android:layout_marginLeft="102dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="103dp"
-            android:layout_marginRight="103dp"
-            android:layout_marginBottom="15dp"
-            android:gravity="center"
-            android:text="@string/levelText"
-            android:textSize="@dimen/font35sp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
         <Button
-            android:id="@+id/button"
+            android:id="@+id/postScoreButton"
             android:layout_width="212dp"
             android:layout_height="59dp"
-            android:layout_marginStart="99dp"
-            android:layout_marginLeft="99dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginRight="100dp"
+            android:layout_marginTop="20dp"
             android:background="@color/postScoreColor"
             android:text="@string/postScoreText"
             android:textColor="@color/White"
             android:textSize="@dimen/gameTextSize"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/levelText"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/levelText"
+            app:layout_constraintTop_toBottomOf="@+id/levelText" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/playAginButton"
             android:layout_width="212dp"
             android:layout_height="59dp"
-            android:layout_marginStart="99dp"
-            android:layout_marginLeft="99dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginRight="100dp"
+            android:layout_marginTop="13dp"
             android:background="@color/playAginColor"
             android:text="@string/playAginText"
             android:textColor="@color/White"
             android:textSize="@dimen/gameTextSize"
-            app:layout_constraintBottom_toTopOf="@+id/button3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/postScoreButton"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/postScoreButton"
+            app:layout_constraintTop_toBottomOf="@+id/postScoreButton" />
+
+        <TextView
+            android:id="@+id/levelText"
+            android:layout_width="207dp"
+            android:layout_height="53dp"
+            android:gravity="center"
+            android:text="@string/levelText"
+            android:textSize="@dimen/font35sp"
+            app:layout_constraintEnd_toEndOf="@+id/pointText"
+            app:layout_constraintStart_toStartOf="@+id/pointText"
+            app:layout_constraintTop_toBottomOf="@+id/pointText" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/homeButton"
             android:layout_width="212dp"
             android:layout_height="59dp"
-            android:layout_marginStart="99dp"
-            android:layout_marginLeft="99dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginRight="100dp"
+            android:layout_marginTop="13dp"
             android:background="@color/homeColor"
             android:text="@string/homeText"
             android:textColor="@color/White"
             android:textSize="@dimen/gameTextSize"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintEnd_toEndOf="@+id/playAginButton"
+            app:layout_constraintStart_toStartOf="@+id/playAginButton"
+            app:layout_constraintTop_toBottomOf="@+id/playAginButton" />
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="138dp"
+            android:layout_height="135dp"
+            android:layout_marginTop="68dp"
+            android:src="@drawable/win"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pointText"
+            android:layout_width="210dp"
+            android:layout_height="71dp"
+            android:gravity="center"
+            android:text="@string/testScore"
+            android:textSize="@dimen/font40sp"
+            app:layout_constraintEnd_toEndOf="@+id/youScoreText"
+            app:layout_constraintStart_toStartOf="@+id/youScoreText"
+            app:layout_constraintTop_toBottomOf="@+id/youScoreText"
+            tools:text="@string/testScore" />
+
+        <TextView
+            android:id="@+id/youScoreText"
+            android:layout_width="213dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/youScoreText"
+            android:textSize="@dimen/font35sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>
 </layout>
