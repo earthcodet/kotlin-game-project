@@ -6,7 +6,7 @@
     <string name="gameNameText">LEAST</string>
     <string name="startButtonText">START</string>
     <string name="chartText">สถิติ</string>
-    <string name="scoreText">SCORE</string>
+    <string name="scoreText">SCORE : </string>
     <string name="levelText">Level</string>
     <string name="timeText">Time : </string>
     <string name="endText">End game</string>

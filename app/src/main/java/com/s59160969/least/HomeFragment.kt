@@ -20,11 +20,11 @@ class HomeFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater,
             R.layout.fragment_home,container,false)
         binding.startGameButton.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_homeFragment_to_gameFragment)
+            view.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToGameFragment())
         }
         binding.chartButton.setOnClickListener{
                 view : View ->
-            view.findNavController().navigate(R.id.action_homeFragment_to_historyFragment)
+            view.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToHistoryFragment())
         }
         return binding.root
     }

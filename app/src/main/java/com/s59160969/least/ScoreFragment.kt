@@ -22,11 +22,11 @@ class ScoreFragment : Fragment() {
             R.layout.fragment_score,container,false)
         binding.playAginButton.setOnClickListener{
                 view : View ->
-            view.findNavController().navigate(R.id.action_scoreFragment_to_gameFragment)
+            view.findNavController().navigate(ScoreFragmentDirections.actionScoreFragmentToGameFragment())
         }
         binding.homeButton.setOnClickListener {
                 view : View ->
-            view.findNavController().navigate(R.id.action_scoreFragment_to_homeFragment)
+            view.findNavController().navigate(ScoreFragmentDirections.actionScoreFragmentToHomeFragment())
         }
 
         return binding.root

@@ -2,61 +2,52 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="game"
+            type="com.s59160969.least.GameFragment" />
+    </data>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".GameFragment">
 
-        <LinearLayout
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="125dp"
-                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/scoreText"
+                android:layout_width="178dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="44dp"
+                android:text="@string/scoreText"
+                android:textSize="@dimen/gameTextSize"
+                app:layout_constraintEnd_toStartOf="@+id/timeText"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="119dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/scroeText"
-                        android:layout_width="178dp"
-                        android:layout_height="33dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="35dp"
-                        android:text="@string/scoreText"
-                        android:textSize="@dimen/gameTextSize" />
-
-                    <TextView
-                        android:id="@+id/timeText"
-                        android:layout_width="157dp"
-                        android:layout_height="32dp"
-                        android:layout_marginLeft="30dp"
-                        android:text="@string/timeText"
-                        android:textSize="@dimen/gameTimeSize" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/levelText"
-                    android:layout_width="192dp"
-                    android:layout_height="33dp"
-                    android:layout_marginTop="35dp"
-                    android:layout_marginEnd="52dp"
-                    android:layout_marginRight="52dp"
-                    android:gravity="center"
-                    android:text="@string/levelText"
-                    android:textSize="@dimen/gameTextSize" />
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/timeText"
+                android:layout_width="157dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="44dp"
+                android:text="@string/timeText"
+                android:textSize="@dimen/gameTextSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/scoreText"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TableLayout
+                android:id="@+id/tableLayout"
                 android:layout_width="match_parent"
-                android:layout_height="375dp">
+                android:layout_height="375dp"
+                android:layout_marginTop="44dp"
+                app:layout_constraintTop_toBottomOf="@+id/scoreText"
+                tools:layout_editor_absoluteX="-16dp">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -66,17 +57,20 @@
                     <Button
                         android:id="@+id/play1button"
                         android:layout_width="120dp"
-                        android:layout_height="120dp" />
+                        android:layout_height="120dp"
+                        android:textSize="@dimen/font35sp" />
 
                     <Button
                         android:id="@+id/play2button"
                         android:layout_width="120dp"
-                        android:layout_height="120dp" />
+                        android:layout_height="120dp"
+                        android:textSize="@dimen/font35sp" />
 
                     <Button
                         android:id="@+id/play3button"
                         android:layout_width="120dp"
-                        android:layout_height="120dp" />
+                        android:layout_height="120dp"
+                        android:textSize="@dimen/font35sp" />
 
                 </TableRow>
 
@@ -88,17 +82,20 @@
                     <Button
                         android:id="@+id/play4button"
                         android:layout_width="120dp"
-                        android:layout_height="120dp" />
+                        android:layout_height="120dp"
+                        android:textSize="@dimen/font35sp" />
 
                     <Button
                         android:id="@+id/play5button"
                         android:layout_width="120dp"
-                        android:layout_height="120dp" />
+                        android:layout_height="120dp"
+                        android:textSize="@dimen/font35sp" />
 
                     <Button
                         android:id="@+id/play6button"
                         android:layout_width="120dp"
-                        android:layout_height="120dp" />
+                        android:layout_height="120dp"
+                        android:textSize="@dimen/font35sp" />
 
                 </TableRow>
 
@@ -110,61 +107,72 @@
                     <Button
                         android:id="@+id/play7button"
                         android:layout_width="120dp"
-                        android:layout_height="120dp" />
+                        android:layout_height="120dp"
+                        android:textSize="@dimen/font35sp" />
 
                     <Button
                         android:id="@+id/play8button"
                         android:layout_width="120dp"
-                        android:layout_height="120dp" />
+                        android:layout_height="120dp"
+                        android:textSize="@dimen/font35sp" />
 
                     <Button
                         android:id="@+id/play9button"
                         android:layout_width="120dp"
-                        android:layout_height="120dp" />
+                        android:layout_height="120dp"
+                        android:textSize="@dimen/font35sp" />
                 </TableRow>
 
             </TableLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="93dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/heart1"
+                android:layout_width="96dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="36dp"
+                app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+                app:layout_constraintHorizontal_bias="0.082"
+                app:layout_constraintStart_toStartOf="@+id/tableLayout"
+                app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+                app:srcCompat="@drawable/heart" />
 
-                <ImageView
-                    android:id="@+id/heart1"
-                    android:layout_width="96dp"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="5dp"
-                    app:srcCompat="@drawable/heart" />
+            <ImageView
+                android:id="@+id/heart3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="36dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.616"
+                app:layout_constraintStart_toStartOf="@+id/tableLayout"
+                app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+                app:srcCompat="@drawable/heart" />
 
-                <ImageView
-                    android:id="@+id/heart2"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/heart" />
+            <TextView
+                android:id="@+id/endGameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="96dp"
+                android:layout_weight="1"
+                android:text="@string/endText"
+                app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+                app:layout_constraintHorizontal_bias="0.887"
+                app:layout_constraintStart_toStartOf="@+id/tableLayout"
+                app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
-                <ImageView
-                    android:id="@+id/heart3"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/heart" />
+            <ImageView
+                android:id="@+id/heart2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="36dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+                app:layout_constraintHorizontal_bias="0.374"
+                app:layout_constraintStart_toStartOf="@+id/tableLayout"
+                app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+                app:srcCompat="@drawable/heart" />
 
-                <TextView
-                    android:id="@+id/endGameText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="67dp"
-                    android:layout_weight="1"
-                    android:text="@string/endText" />
-            </LinearLayout>
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>
 </layout>
