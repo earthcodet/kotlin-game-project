@@ -20,7 +20,9 @@
         android:label="GameFragment" >
         <action
             android:id="@+id/action_gameFragment_to_scoreFragment"
-            app:destination="@id/scoreFragment" />
+            app:destination="@id/scoreFragment"
+            app:popUpTo="@+id/homeFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/scoreFragment"
@@ -28,10 +30,15 @@
         android:label="ScoreFragment" >
         <action
             android:id="@+id/action_scoreFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@+id/homeFragment"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_scoreFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <argument
+            android:name="scoreGame"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"

@@ -3,7 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <data>
+        <variable
+            name="game"
+            type="com.s59160969.least.ScoreFragment" />
+    </data>
 <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,57 +17,47 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#7DDB7F">
 
         <Button
             android:id="@+id/postScoreButton"
             android:layout_width="212dp"
             android:layout_height="59dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="56dp"
             android:background="@color/postScoreColor"
             android:text="@string/postScoreText"
             android:textColor="@color/White"
             android:textSize="@dimen/gameTextSize"
-            app:layout_constraintEnd_toEndOf="@+id/levelText"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/levelText"
-            app:layout_constraintTop_toBottomOf="@+id/levelText" />
-
-        <Button
-            android:id="@+id/playAginButton"
-            android:layout_width="212dp"
-            android:layout_height="59dp"
-            android:layout_marginTop="13dp"
-            android:background="@color/playAginColor"
-            android:text="@string/playAginText"
-            android:textColor="@color/White"
-            android:textSize="@dimen/gameTextSize"
-            app:layout_constraintEnd_toEndOf="@+id/postScoreButton"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/postScoreButton"
-            app:layout_constraintTop_toBottomOf="@+id/postScoreButton" />
-
-        <TextView
-            android:id="@+id/levelText"
-            android:layout_width="207dp"
-            android:layout_height="53dp"
-            android:gravity="center"
-            android:text="@string/levelText"
-            android:textSize="@dimen/font35sp"
             app:layout_constraintEnd_toEndOf="@+id/pointText"
             app:layout_constraintStart_toStartOf="@+id/pointText"
             app:layout_constraintTop_toBottomOf="@+id/pointText" />
 
         <Button
+            android:id="@+id/playAginButton"
+            android:layout_width="212dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/playAginColor"
+            android:text="@string/playAginText"
+            android:textColor="@color/White"
+            android:textSize="@dimen/gameTextSize"
+            app:layout_constraintEnd_toEndOf="@+id/postScoreButton"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/postScoreButton"
+            app:layout_constraintTop_toBottomOf="@+id/postScoreButton" />
+
+        <Button
             android:id="@+id/homeButton"
             android:layout_width="212dp"
             android:layout_height="59dp"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="24dp"
             android:background="@color/homeColor"
             android:text="@string/homeText"
             android:textColor="@color/White"
             android:textSize="@dimen/gameTextSize"
             app:layout_constraintEnd_toEndOf="@+id/playAginButton"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/playAginButton"
             app:layout_constraintTop_toBottomOf="@+id/playAginButton" />
 
@@ -83,7 +77,7 @@
             android:layout_width="210dp"
             android:layout_height="71dp"
             android:gravity="center"
-            android:text="@string/testScore"
+            android:text="@string/scoreText"
             android:textSize="@dimen/font40sp"
             app:layout_constraintEnd_toEndOf="@+id/youScoreText"
             app:layout_constraintStart_toStartOf="@+id/youScoreText"
