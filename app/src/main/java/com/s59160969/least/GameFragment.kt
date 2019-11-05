@@ -57,34 +57,34 @@ class GameFragment : Fragment() {
     }
     fun setGameNumber (){
         binding.apply {
-            play1button.text = ""+viewModel.answerList[0]
-            play2button.text = ""+viewModel.answerList[1]
-            play3button.text = ""+viewModel.answerList[2]
-            play4button.text = ""+viewModel.answerList[3]
-            play5button.text = ""+viewModel.answerList[4]
-            play6button.text = ""+viewModel.answerList[5]
-            play7button.text = ""+viewModel.answerList[6]
-            play8button.text = ""+viewModel.answerList[7]
-            play9button.text = ""+viewModel.answerList[8]
+            play1button.text = ""+viewModel._answerList.value?.get(0)
+            play2button.text = ""+viewModel._answerList.value?.get(1)
+            play3button.text = ""+viewModel._answerList.value?.get(2)
+            play4button.text = ""+viewModel._answerList.value?.get(3)
+            play5button.text = ""+viewModel._answerList.value?.get(4)
+            play6button.text = ""+viewModel._answerList.value?.get(5)
+            play7button.text = ""+viewModel._answerList.value?.get(6)
+            play8button.text = ""+viewModel._answerList.value?.get(7)
+            play9button.text = ""+viewModel._answerList.value?.get(8)
         }
-        viewModel.answerGame = viewModel.answerList.min()
+        viewModel._answerGame = viewModel._answerList.value?.min()
     }
     fun onCheckAnswer(value:Int){
-        if(viewModel.answerList[value] == viewModel.answerGame){
+        if(viewModel._answerList.value?.get(value) == viewModel._answerGame){
             updateScoreText()
             newGame()
         }
         else {
-            viewModel.heart -= 1
+            viewModel._heart.value = (viewModel._heart.value)?.minus(1)
             onCheckHeart()
         }
     }
     private fun updateScoreText() {
-        viewModel.score += 10
-        binding.scoreText.text = "Score : ${viewModel.score}"
+        viewModel._score.value = (viewModel._score.value)?.plus(10)
+        binding.scoreText.text = "Score : ${viewModel._score.value}"
     }
     fun onCheckHeart(){
-        when (viewModel.heart) {
+        when (viewModel._heart.value) {
             2 -> binding.heart3.setImageResource(R.drawable.heartlow)
             1 -> binding.heart2.setImageResource(R.drawable.heartlow)
             0 -> binding.heart1.setImageResource(R.drawable.heartlow)
@@ -92,7 +92,7 @@ class GameFragment : Fragment() {
         }
     }
     fun onEndGame(){
-        val action = GameFragmentDirections.actionGameFragmentToScoreFragment(viewModel.score)
+        val action = GameFragmentDirections.actionGameFragmentToScoreFragment(viewModel._score.value?:0)
         NavHostFragment.findNavController(this).navigate(action)
     }
 
