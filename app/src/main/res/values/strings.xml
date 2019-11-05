@@ -8,7 +8,6 @@
     <string name="chartText">สถิติ</string>
     <string name="scoreText">Score : 0</string>
     <string name="levelText">Level</string>
-    <string name="timeText">Time : </string>
     <string name="endText">End game</string>
     <string name="youScoreText">YOU SCORE</string>
     <string name="postScoreText">POST SCORE</string>

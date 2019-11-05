@@ -20,11 +20,6 @@ import com.s59160969.least.databinding.FragmentGameBinding
  */
 class GameFragment : Fragment() {
     private lateinit var viewModel: GameViewModel
-    private lateinit var timeGame: CountDownTimer
-    private val DONE = 0L
-    private val ONE_SECOND = 1000L
-    var COUNTDOWN_TIME = 15000L
-    var currentTimeString = DateUtils.formatElapsedTime(COUNTDOWN_TIME)
     private lateinit var binding: FragmentGameBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
