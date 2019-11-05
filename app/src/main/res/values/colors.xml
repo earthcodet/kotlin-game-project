@@ -7,6 +7,6 @@
     <color name="startColor">#009900</color>
     <color name="White">#FFFFFF</color>
     <color name="postScoreColor">#f0a30a</color>
-    <color name="playAginColor">#54694d</color>
+    <color name="playAgainColor">#54694d</color>
     <color name="homeColor">#3a4735</color>
 </resources>

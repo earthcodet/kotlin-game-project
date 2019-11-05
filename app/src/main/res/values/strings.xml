@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Least</string>
-
+    <string name="scoreFormat">Score : %d</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="gameDescribeText">หาตัวเลขที่น้อยที่สุดกันเถอะ</string>
     <string name="gameNameText">LEAST</string>
@@ -12,7 +12,7 @@
     <string name="endText">End game</string>
     <string name="youScoreText">YOU SCORE</string>
     <string name="postScoreText">POST SCORE</string>
-    <string name="playAginText">PLAY AGIN</string>
+    <string name="playAgainText">PLAY AGAIN</string>
     <string name="historyText">HISTORY</string>
     <string name="shareText">ฉันได้คะแนน %1$d จากแอพ least!</string>
     <string name="homeText">HOME</string>

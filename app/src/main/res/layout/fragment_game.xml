@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="game"
-            type="com.s59160969.least.GameFragment" />
-    </data>
+            name="gameViewModel"
+            type="com.s59160969.least.GameViewModel" />
 
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="15dp"
-            android:text="@string/scoreText"
+            android:text="@{@string/scoreFormat(gameViewModel.score)}"
             android:textSize="@dimen/gameTextSize"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -55,18 +55,24 @@
                     android:id="@+id/play1button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
+                    android:text="@{String.valueOf(gameViewModel.answerList[0])}"
+                    android:onClick="@{() -> gameViewModel.Gameplay(0)}"
                     android:textSize="@dimen/font35sp" />
 
                 <Button
                     android:id="@+id/play2button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
+                    android:text="@{String.valueOf(gameViewModel.answerList[1])}"
+                    android:onClick="@{() -> gameViewModel.Gameplay(1)}"
                     android:textSize="@dimen/font35sp" />
 
                 <Button
                     android:id="@+id/play3button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
+                    android:text="@{String.valueOf(gameViewModel.answerList[2])}"
+                    android:onClick="@{() -> gameViewModel.Gameplay(2)}"
                     android:textSize="@dimen/font35sp" />
 
             </TableRow>
@@ -80,18 +86,24 @@
                     android:id="@+id/play4button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
+                    android:text="@{String.valueOf(gameViewModel.answerList[3])}"
+                    android:onClick="@{() -> gameViewModel.Gameplay(3)}"
                     android:textSize="@dimen/font35sp" />
 
                 <Button
                     android:id="@+id/play5button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
+                    android:text="@{String.valueOf(gameViewModel.answerList[4])}"
+                    android:onClick="@{() -> gameViewModel.Gameplay(4)}"
                     android:textSize="@dimen/font35sp" />
 
                 <Button
                     android:id="@+id/play6button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
+                    android:text="@{String.valueOf(gameViewModel.answerList[5])}"
+                    android:onClick="@{() -> gameViewModel.Gameplay(5)}"
                     android:textSize="@dimen/font35sp" />
 
             </TableRow>
@@ -105,18 +117,24 @@
                     android:id="@+id/play7button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
+                    android:text="@{String.valueOf(gameViewModel.answerList[6])}"
+                    android:onClick="@{() -> gameViewModel.Gameplay(6)}"
                     android:textSize="@dimen/font35sp" />
 
                 <Button
                     android:id="@+id/play8button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
+                    android:text="@{String.valueOf(gameViewModel.answerList[7])}"
+                    android:onClick="@{() -> gameViewModel.Gameplay(7)}"
                     android:textSize="@dimen/font35sp" />
 
                 <Button
                     android:id="@+id/play9button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
+                    android:text="@{String.valueOf(gameViewModel.answerList[8])}"
+                    android:onClick="@{() -> gameViewModel.Gameplay(8)}"
                     android:textSize="@dimen/font35sp" />
             </TableRow>
 
@@ -131,7 +149,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/heart2"
             app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-            app:srcCompat="@drawable/heart" />
+            android:src="@{gameViewModel.heart == 2 || gameViewModel.heart == 1 ? @drawable/heartlow : @drawable/heart }"/>
 
         <ImageView
             android:id="@+id/heart2"
@@ -142,7 +160,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/heart1"
             app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-            app:srcCompat="@drawable/heart" />
+            android:src="@{gameViewModel.heart == 1 ? @drawable/heartlow : @drawable/heart }" />
 
         <ImageView
             android:id="@+id/heart1"
@@ -160,6 +178,7 @@
             android:layout_height="32dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="28dp"
+            android:onClick="@{() -> gameViewModel.onGameFinish()}"
             android:layout_weight="1"
             android:text="@string/endText"
             android:textSize="@dimen/gameTimeSize"

@@ -19,12 +19,16 @@ class GameViewModel : ViewModel() {
     val eventGameFinish: LiveData<Boolean>
         get() = _eventGameFinish
 
-    val answerList: IntArray = IntArray(9)
-    var answerGame = answerList.min()
+    val _answerList = MutableLiveData<IntArray>()
+    val answerList:LiveData<IntArray>
+        get() = _answerList
 
+    var answerGame = answerList.value?.min()
     init {
         _score.value =  0
         _heart.value = 3
+        _answerList.value = IntArray(9)
+        _eventGameFinish.value = false
         Log.i("GameViewModel", "GameViewModel created!")
     }
     fun randomAnswer(){
@@ -39,11 +43,14 @@ class GameViewModel : ViewModel() {
             pickedInt.add(randomInt)
             return randomInt
         }
+        _answerList.value = IntArray(9)
         for(i in 0..8){
             var n = rand(10,100)
-            answerList[i] = n
+            answerList.value?.set(i, n)
+            //answerList[i] = n
         }
-       answerGame = answerList.min()
+        answerGame = answerList.value?.min()
+
     }
     override fun onCleared() {
         super.onCleared()
@@ -55,9 +62,27 @@ class GameViewModel : ViewModel() {
     }
     fun onInCorrect(){
         _heart.value = (_heart.value)?.minus(1)
+        if(_heart.value == 0) onGameFinish()
     }
 
     fun onGameFinish() {
         _eventGameFinish.value = true
     }
+    fun onCheckAnswer(value:Int):Boolean{
+        if(answerList.value?.get(value) == answerGame){
+           onCorrect()
+            return true
+        }
+        else {
+            onInCorrect()
+            return false
+        }
+    }
+    fun Gameplay (value:Int):Boolean{
+        if(onCheckAnswer(value)){
+            randomAnswer()
+            return true
+        }else return false
+    }
+
 }
