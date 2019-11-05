@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.google.android.material.snackbar.Snackbar
 import java.util.*
 
 class GameViewModel : ViewModel() {
@@ -32,6 +33,7 @@ class GameViewModel : ViewModel() {
 
     var answerGame = answerList.value?.min()
     private val timer: CountDownTimer
+
 
     val currentTimeString = Transformations.map(currentTime) { time ->
         "Time : ${DateUtils.formatElapsedTime(time)}"
@@ -84,6 +86,7 @@ class GameViewModel : ViewModel() {
         answerGame = answerList.value?.min()
 
     }
+
     override fun onCleared() {
         super.onCleared()
         Log.i("GameViewModel", "GameViewModel destroyed!")
@@ -111,11 +114,10 @@ class GameViewModel : ViewModel() {
             return false
         }
     }
-    fun Gameplay (value:Int):Boolean{
+    fun Gameplay (value:Int){
         if(onCheckAnswer(value)){
             randomAnswer()
-            return true
-        }else return false
+        }
     }
 
 }

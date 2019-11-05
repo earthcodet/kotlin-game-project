@@ -50,7 +50,7 @@ class ScoreFragment : Fragment() {
                 viewModel.onPostinComplete()
             }
         })
-
+        Toast.makeText(context, "คุณได้คะแนน: ${viewModel.score.value} คะแนน", Toast.LENGTH_LONG).show()
         binding.lifecycleOwner = this
         binding.scoreViewModel = viewModel
         return binding.root
