@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.s59160969.least.databinding.FragmentGameBinding
 import com.s59160969.least.databinding.FragmentScoreBinding
 
@@ -32,19 +33,32 @@ class ScoreFragment : Fragment() {
         viewModel.score.observe(this, Observer { newScore ->
             binding.pointText.text = newScore.toString()
         })
-        binding.apply {
-//            pointText.text = viewModel.score.toString()
-            playAginButton.setOnClickListener{
-                    view : View ->
-                view.findNavController().navigate(ScoreFragmentDirections.actionScoreFragmentToGameFragment())
+
+        viewModel.eventPlayAgain.observe(this, Observer { playAgain ->
+            if (playAgain) {
+                findNavController().navigate(ScoreFragmentDirections.actionScoreFragmentToGameFragment())
+                viewModel.onPlayAgainComplete()
             }
-            homeButton.setOnClickListener {
-                    view : View ->
-                view.findNavController().navigate(ScoreFragmentDirections.actionScoreFragmentToHomeFragment())
+        })
+
+        viewModel.eventHome.observe(this, Observer { home ->
+            if (home) {
+                findNavController().navigate(ScoreFragmentDirections.actionScoreFragmentToHomeFragment())
+                viewModel.onHomeinComplete()
             }
-            postScoreButton.setOnClickListener {
+        })
+
+        viewModel.eventPost.observe(this, Observer { post ->
+            if (post) {
                 shareSuccess()
+                viewModel.onPostinComplete()
             }
+        })
+
+        binding.apply {
+            playAginButton.setOnClickListener{viewModel.onPlayAgain()}
+            homeButton.setOnClickListener {viewModel.onHome()}
+            postScoreButton.setOnClickListener {viewModel.onPost()}
         }
 
         return binding.root
