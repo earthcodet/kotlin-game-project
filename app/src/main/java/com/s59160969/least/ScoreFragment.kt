@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.s59160969.least.databinding.FragmentGameBinding
@@ -24,13 +25,15 @@ class ScoreFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentScoreBinding>(inflater,
             R.layout.fragment_score,container,false)
-        val args = ScoreFragmentArgs.fromBundle(arguments!!)
-        viewModelFactory = ScoreViewModelFactory(ScoreFragmentArgs.fromBundle(arguments!!).scoreGame)
-        viewModel = ViewModelProviders.of(this, viewModelFactory)
-            .get(ScoreViewModel::class.java)
 
+        viewModelFactory = ScoreViewModelFactory(ScoreFragmentArgs.fromBundle(arguments!!).scoreGame)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(ScoreViewModel::class.java)
+
+        viewModel.score.observe(this, Observer { newScore ->
+            binding.pointText.text = newScore.toString()
+        })
         binding.apply {
-            pointText.text = viewModel.score.toString()
+//            pointText.text = viewModel.score.toString()
             playAginButton.setOnClickListener{
                     view : View ->
                 view.findNavController().navigate(ScoreFragmentDirections.actionScoreFragmentToGameFragment())
@@ -43,8 +46,6 @@ class ScoreFragment : Fragment() {
                 shareSuccess()
             }
         }
-        Toast.makeText(context, "scoreGame: ${args.scoreGame}", Toast.LENGTH_LONG).show()
-        //post button
 
         return binding.root
     }
