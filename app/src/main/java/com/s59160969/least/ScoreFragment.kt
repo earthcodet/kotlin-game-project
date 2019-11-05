@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.s59160969.least.databinding.FragmentGameBinding
 import com.s59160969.least.databinding.FragmentScoreBinding
@@ -17,14 +18,19 @@ import com.s59160969.least.databinding.FragmentScoreBinding
  * A simple [Fragment] subclass.
  */
 class ScoreFragment : Fragment() {
+    private lateinit var viewModel: ScoreViewModel
+    private lateinit var viewModelFactory: ScoreViewModelFactory
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentScoreBinding>(inflater,
             R.layout.fragment_score,container,false)
         val args = ScoreFragmentArgs.fromBundle(arguments!!)
+        viewModelFactory = ScoreViewModelFactory(ScoreFragmentArgs.fromBundle(arguments!!).scoreGame)
+        viewModel = ViewModelProviders.of(this, viewModelFactory)
+            .get(ScoreViewModel::class.java)
 
         binding.apply {
-            pointText.text = "${args.scoreGame}"
+            pointText.text = viewModel.score.toString()
             playAginButton.setOnClickListener{
                     view : View ->
                 view.findNavController().navigate(ScoreFragmentDirections.actionScoreFragmentToGameFragment())

@@ -3,10 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,18 +13,17 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="170dp"
-            android:layout_height="193dp"
-            android:layout_marginStart="61dp"
-            android:layout_marginTop="76dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
             android:src="@drawable/home"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.327"
+            app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/gameNameText"
-            android:layout_width="173dp"
+            android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_marginTop="32dp"
             android:gravity="center"
@@ -35,13 +31,13 @@
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/imageView"
-            app:layout_constraintHorizontal_bias="0.337"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/gameDescribeText"
-            android:layout_width="269dp"
+            android:layout_width="match_parent"
             android:layout_height="42dp"
             android:layout_marginTop="24dp"
             android:gravity="center"
@@ -73,17 +69,17 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="168dp"
             android:layout_height="46dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="20dp"
             android:background="@color/chartColor"
             android:shadowColor="@color/chartColor"
             android:text="@string/chartText"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/startGameButton"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/startGameButton"
             app:layout_constraintTop_toBottomOf="@+id/startGameButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+
 </layout>

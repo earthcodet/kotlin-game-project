@@ -20,9 +20,7 @@
         android:label="GameFragment" >
         <action
             android:id="@+id/action_gameFragment_to_scoreFragment"
-            app:destination="@id/scoreFragment"
-            app:popUpTo="@+id/homeFragment"
-            app:popUpToInclusive="false" />
+            app:destination="@+id/scoreFragment" />
     </fragment>
     <fragment
         android:id="@+id/scoreFragment"

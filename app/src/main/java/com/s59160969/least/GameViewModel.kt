@@ -1,11 +1,11 @@
 package com.s59160969.least
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import java.util.*
 
 class GameViewModel : ViewModel() {
     var score = 0
-    var scoreShow= "SCORE : $score"
     var heart = 3
     val answerList: IntArray = IntArray(9)
     var answerGame = answerList.min()
@@ -26,5 +26,9 @@ class GameViewModel : ViewModel() {
             var n = rand(1,100)
             answerList[i] = n
         }
+    }
+    override fun onCleared() {
+        super.onCleared()
+        Log.i("GameViewModel", "GameViewModel destroyed!")
     }
 }
