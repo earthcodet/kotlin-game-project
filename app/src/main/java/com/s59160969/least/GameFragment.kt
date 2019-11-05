@@ -10,9 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import com.s59160969.least.databinding.FragmentGameBinding
 
 /**
@@ -33,6 +33,15 @@ class GameFragment : Fragment() {
         Log.i("GameFragment", "Called ViewModelProviders.of")
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
 
+        viewModel.score.observe(this, Observer {
+            binding.scoreText.text = "Score : ${viewModel.score.value}"
+        })
+        viewModel.heart.observe(this, Observer {
+            onCheckHeart()
+        })
+        viewModel.eventGameFinish.observe(this, Observer<Boolean> { hasFinished ->
+            if (hasFinished) gameFinished()
+        })
         binding.apply {
             timeText.text = ""+timeText.text+ currentTimeString
             play1button.setOnClickListener{onCheckAnswer(0)}
@@ -44,8 +53,8 @@ class GameFragment : Fragment() {
             play7button.setOnClickListener{onCheckAnswer(6)}
             play8button.setOnClickListener{onCheckAnswer(7)}
             play9button.setOnClickListener{onCheckAnswer(8)}
-           endGameText.setOnClickListener {
-               onEndGame()
+            endGameText.setOnClickListener {
+               gameFinished()
           }
         }
         newGame()
@@ -55,45 +64,38 @@ class GameFragment : Fragment() {
         viewModel.randomAnswer()
         setGameNumber()
     }
-    fun setGameNumber (){
-        binding.apply {
-            play1button.text = ""+viewModel._answerList.value?.get(0)
-            play2button.text = ""+viewModel._answerList.value?.get(1)
-            play3button.text = ""+viewModel._answerList.value?.get(2)
-            play4button.text = ""+viewModel._answerList.value?.get(3)
-            play5button.text = ""+viewModel._answerList.value?.get(4)
-            play6button.text = ""+viewModel._answerList.value?.get(5)
-            play7button.text = ""+viewModel._answerList.value?.get(6)
-            play8button.text = ""+viewModel._answerList.value?.get(7)
-            play9button.text = ""+viewModel._answerList.value?.get(8)
-        }
-        viewModel._answerGame = viewModel._answerList.value?.min()
-    }
     fun onCheckAnswer(value:Int){
-        if(viewModel._answerList.value?.get(value) == viewModel._answerGame){
-            updateScoreText()
+        if(viewModel.answerList[value] == viewModel.answerGame){
+            viewModel.onCorrect()
             newGame()
         }
         else {
-            viewModel._heart.value = (viewModel._heart.value)?.minus(1)
-            onCheckHeart()
+           viewModel.onInCorrect()
         }
-    }
-    private fun updateScoreText() {
-        viewModel._score.value = (viewModel._score.value)?.plus(10)
-        binding.scoreText.text = "Score : ${viewModel._score.value}"
     }
     fun onCheckHeart(){
-        when (viewModel._heart.value) {
+        when (viewModel.heart.value) {
+            3 -> binding.heart3.setImageResource(R.drawable.heart)
             2 -> binding.heart3.setImageResource(R.drawable.heartlow)
             1 -> binding.heart2.setImageResource(R.drawable.heartlow)
-            0 -> binding.heart1.setImageResource(R.drawable.heartlow)
-            else -> onEndGame()
+            else -> viewModel.onGameFinish()
         }
     }
-    fun onEndGame(){
-        val action = GameFragmentDirections.actionGameFragmentToScoreFragment(viewModel._score.value?:0)
+    fun gameFinished(){
+        val action = GameFragmentDirections.actionGameFragmentToScoreFragment(viewModel.score.value?:0)
         NavHostFragment.findNavController(this).navigate(action)
     }
-
+    fun setGameNumber (){
+        binding.apply {
+            play1button.text = ""+viewModel.answerList[0]
+            play2button.text = ""+viewModel.answerList[1]
+            play3button.text = ""+viewModel.answerList[2]
+            play4button.text = ""+viewModel.answerList[3]
+            play5button.text = ""+viewModel.answerList[4]
+            play6button.text = ""+viewModel.answerList[5]
+            play7button.text = ""+viewModel.answerList[6]
+            play8button.text = ""+viewModel.answerList[7]
+            play9button.text = ""+viewModel.answerList[8]
+        }
+    }
 }
