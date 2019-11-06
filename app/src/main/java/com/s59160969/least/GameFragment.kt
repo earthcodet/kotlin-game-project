@@ -13,6 +13,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.snackbar.Snackbar
 import com.s59160969.least.databinding.FragmentGameBinding
 
 /**
@@ -28,7 +29,6 @@ class GameFragment : Fragment() {
             inflater,
             R.layout.fragment_game,
             container,false)
-
         Log.i("GameFragment", "Called ViewModelProviders.of")
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
 

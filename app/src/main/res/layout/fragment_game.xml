@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#C1C6CE"
+        android:id="@+id/containerId"
         >
 
         <TextView
@@ -55,24 +56,27 @@
                     android:id="@+id/play1button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:text="@{String.valueOf(gameViewModel.answerList[0])}"
+                    android:background="@{gameViewModel.incorrect1 == 0 || gameViewModel.incorrect2 == 0 ? @drawable/button_focus : @drawable/button}"
                     android:onClick="@{() -> gameViewModel.Gameplay(0)}"
+                    android:text="@{String.valueOf(gameViewModel.answerList[0])}"
                     android:textSize="@dimen/font35sp" />
 
                 <Button
                     android:id="@+id/play2button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:text="@{String.valueOf(gameViewModel.answerList[1])}"
+                    android:background="@{gameViewModel.incorrect1 == 1 || gameViewModel.incorrect2 == 1 ? @drawable/button_focus : @drawable/button}"
                     android:onClick="@{() -> gameViewModel.Gameplay(1)}"
+                    android:text="@{String.valueOf(gameViewModel.answerList[1])}"
                     android:textSize="@dimen/font35sp" />
 
                 <Button
                     android:id="@+id/play3button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:text="@{String.valueOf(gameViewModel.answerList[2])}"
+                    android:background="@{gameViewModel.incorrect1 == 2 || gameViewModel.incorrect2 == 2 ? @drawable/button_focus : @drawable/button}"
                     android:onClick="@{() -> gameViewModel.Gameplay(2)}"
+                    android:text="@{String.valueOf(gameViewModel.answerList[2])}"
                     android:textSize="@dimen/font35sp" />
 
             </TableRow>
@@ -86,24 +90,27 @@
                     android:id="@+id/play4button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:text="@{String.valueOf(gameViewModel.answerList[3])}"
+                    android:background="@{gameViewModel.incorrect1 == 3 || gameViewModel.incorrect2 == 3 ? @drawable/button_focus : @drawable/button}"
                     android:onClick="@{() -> gameViewModel.Gameplay(3)}"
+                    android:text="@{String.valueOf(gameViewModel.answerList[3])}"
                     android:textSize="@dimen/font35sp" />
 
                 <Button
                     android:id="@+id/play5button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:text="@{String.valueOf(gameViewModel.answerList[4])}"
+                    android:background="@{gameViewModel.incorrect1 == 4 || gameViewModel.incorrect2 == 4 ? @drawable/button_focus : @drawable/button}"
                     android:onClick="@{() -> gameViewModel.Gameplay(4)}"
+                    android:text="@{String.valueOf(gameViewModel.answerList[4])}"
                     android:textSize="@dimen/font35sp" />
 
                 <Button
                     android:id="@+id/play6button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:text="@{String.valueOf(gameViewModel.answerList[5])}"
+                    android:background="@{gameViewModel.incorrect1 == 5 || gameViewModel.incorrect2 == 5 ? @drawable/button_focus : @drawable/button}"
                     android:onClick="@{() -> gameViewModel.Gameplay(5)}"
+                    android:text="@{String.valueOf(gameViewModel.answerList[5])}"
                     android:textSize="@dimen/font35sp" />
 
             </TableRow>
@@ -117,24 +124,27 @@
                     android:id="@+id/play7button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:text="@{String.valueOf(gameViewModel.answerList[6])}"
+                    android:background="@{gameViewModel.incorrect1 == 6 || gameViewModel.incorrect2 == 6 ? @drawable/button_focus : @drawable/button}"
                     android:onClick="@{() -> gameViewModel.Gameplay(6)}"
+                    android:text="@{String.valueOf(gameViewModel.answerList[6])}"
                     android:textSize="@dimen/font35sp" />
 
                 <Button
                     android:id="@+id/play8button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:text="@{String.valueOf(gameViewModel.answerList[7])}"
+                    android:background="@{gameViewModel.incorrect1 == 7 || gameViewModel.incorrect2 == 7 ? @drawable/button_focus : @drawable/button}"
                     android:onClick="@{() -> gameViewModel.Gameplay(7)}"
+                    android:text="@{String.valueOf(gameViewModel.answerList[7])}"
                     android:textSize="@dimen/font35sp" />
 
                 <Button
                     android:id="@+id/play9button"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:text="@{String.valueOf(gameViewModel.answerList[8])}"
+                    android:background="@{gameViewModel.incorrect1 == 8 || gameViewModel.incorrect2 == 8 ? @drawable/button_focus : @drawable/button}"
                     android:onClick="@{() -> gameViewModel.Gameplay(8)}"
+                    android:text="@{String.valueOf(gameViewModel.answerList[8])}"
                     android:textSize="@dimen/font35sp" />
             </TableRow>
 

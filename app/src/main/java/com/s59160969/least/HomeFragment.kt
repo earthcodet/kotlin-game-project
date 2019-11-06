@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.s59160969.least.databinding.FragmentHomeBinding
 
 /**
@@ -25,6 +26,9 @@ class HomeFragment : Fragment() {
         binding.chartButton.setOnClickListener{
                 view : View ->
             view.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToHistoryFragment())
+        }
+        binding.imageView.setOnClickListener { view:View ->
+            Snackbar.make(view, "Welcome to Least", Snackbar.LENGTH_SHORT).show()
         }
         return binding.root
     }

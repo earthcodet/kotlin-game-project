@@ -3,6 +3,7 @@ package com.s59160969.least
 import android.os.CountDownTimer
 import android.text.format.DateUtils
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -31,6 +32,14 @@ class GameViewModel : ViewModel() {
     val currentTime: LiveData<Long>
         get() = _currentTime
 
+    private val _incorrect1 = MutableLiveData<Int>()
+    val incorrect1:LiveData<Int>
+        get() = _incorrect1
+
+    private val _incorrect2 = MutableLiveData<Int>()
+    val incorrect2:LiveData<Int>
+        get() = _incorrect2
+
     var answerGame = answerList.value?.min()
     private val timer: CountDownTimer
 
@@ -50,6 +59,8 @@ class GameViewModel : ViewModel() {
         _heart.value = 3
         _answerList.value = IntArray(9)
         _eventGameFinish.value = false
+        _incorrect1.value = -1
+        _incorrect2.value = -1
         Log.i("GameViewModel", "GameViewModel created!")
         timer = object : CountDownTimer(COUNTDOWN_TIME, ONE_SECOND) {
 
@@ -81,11 +92,21 @@ class GameViewModel : ViewModel() {
         for(i in 0..8){
             var n = rand(10,100)
             answerList.value?.set(i, n)
-            //answerList[i] = n
         }
         answerGame = answerList.value?.min()
 
     }
+        fun markIncorrect(value: Int){
+            if(_incorrect1.value == -1){
+                _incorrect1.value = value
+            }else{
+                _incorrect2.value = value
+            }
+        }
+        fun resetIncorrect(){
+            _incorrect1.value = -1
+            _incorrect2.value = -1
+        }
 
     override fun onCleared() {
         super.onCleared()
@@ -104,20 +125,24 @@ class GameViewModel : ViewModel() {
     fun onGameFinish() {
         _eventGameFinish.value = true
     }
+
     fun onCheckAnswer(value:Int):Boolean{
         if(answerList.value?.get(value) == answerGame){
            onCorrect()
+            resetIncorrect()
             return true
         }
         else {
+            markIncorrect(value)
             onInCorrect()
             return false
         }
     }
-    fun Gameplay (value:Int){
+    fun Gameplay (value:Int):Int{
         if(onCheckAnswer(value)){
             randomAnswer()
         }
+        return value
     }
 
 }

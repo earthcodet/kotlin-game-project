@@ -2,10 +2,10 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="red">#D81B60</color>
     <color name="chartColor">#6D8764</color>
     <color name="startColor">#009900</color>
-    <color name="White">#FFFFFF</color>
+    <color name="White">#CAC7C7</color>
     <color name="postScoreColor">#f0a30a</color>
     <color name="playAgainColor">#54694d</color>
     <color name="homeColor">#3a4735</color>
