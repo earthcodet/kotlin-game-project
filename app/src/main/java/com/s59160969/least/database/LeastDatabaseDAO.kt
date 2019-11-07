@@ -12,4 +12,8 @@ interface LeastDatabaseDAO {
 
     @Query("SELECT * FROM data_least_table ORDER BY leastId DESC")
     fun getAllScore(): LiveData<List<LeastScore>>
+
+    //testDatabase
+    @Query("SELECT * FROM data_least_table ORDER BY leastId DESC LIMIT 1")
+    fun getToScore(): LeastScore?
 }
