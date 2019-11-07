@@ -14,6 +14,7 @@ import com.s59160969.least.databinding.FragmentHistoryBinding
 /**
  * A simple [Fragment] subclass.
  */
+
 class HistoryFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
