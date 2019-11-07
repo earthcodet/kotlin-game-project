@@ -20,8 +20,8 @@
             android:id="@+id/scoreText"
             android:layout_width="154dp"
             android:layout_height="0dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:text="@{@string/scoreFormat(gameViewModel.score)}"
             android:textSize="@dimen/gameTextSize"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,8 +31,8 @@
             android:id="@+id/timeText"
             android:layout_width="157dp"
             android:layout_height="0dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
             android:gravity="center"
             android:text="@{gameViewModel.currentTimeString}"
             android:textSize="@dimen/gameTextSize"
@@ -41,11 +41,13 @@
 
         <TableLayout
             android:id="@+id/tableLayout"
-            android:layout_width="362dp"
-            android:layout_height="396dp"
-            app:layout_constraintEnd_toEndOf="@+id/timeText"
-            app:layout_constraintStart_toStartOf="@+id/scoreText"
-            app:layout_constraintTop_toBottomOf="@+id/scoreText">
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toTopOf="@+id/heart3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timeText">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -54,8 +56,8 @@
 
                 <Button
                     android:id="@+id/play1button"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@{gameViewModel.incorrect1 == 0 || gameViewModel.incorrect2 == 0 ? @drawable/button_focus : @drawable/button}"
                     android:onClick="@{() -> gameViewModel.Gameplay(0)}"
                     android:text="@{String.valueOf(gameViewModel.answerList[0])}"
@@ -63,7 +65,7 @@
 
                 <Button
                     android:id="@+id/play2button"
-                    android:layout_width="120dp"
+                    android:layout_width="match_parent"
                     android:layout_height="120dp"
                     android:background="@{gameViewModel.incorrect1 == 1 || gameViewModel.incorrect2 == 1 ? @drawable/button_focus : @drawable/button}"
                     android:onClick="@{() -> gameViewModel.Gameplay(1)}"
@@ -72,7 +74,7 @@
 
                 <Button
                     android:id="@+id/play3button"
-                    android:layout_width="120dp"
+                    android:layout_width="match_parent"
                     android:layout_height="120dp"
                     android:background="@{gameViewModel.incorrect1 == 2 || gameViewModel.incorrect2 == 2 ? @drawable/button_focus : @drawable/button}"
                     android:onClick="@{() -> gameViewModel.Gameplay(2)}"
@@ -154,46 +156,48 @@
             android:id="@+id/heart3"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:layout_marginBottom="16dp"
             android:layout_weight="1"
+            android:src="@{gameViewModel.heart == 2 || gameViewModel.heart == 1 ? @drawable/heartlow : @drawable/heart }"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/endGameText"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/heart2"
-            app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-            android:src="@{gameViewModel.heart == 2 || gameViewModel.heart == 1 ? @drawable/heartlow : @drawable/heart }"/>
-
-        <ImageView
-            android:id="@+id/heart2"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            app:layout_constraintEnd_toStartOf="@+id/heart3"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/heart1"
-            app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-            android:src="@{gameViewModel.heart == 1 ? @drawable/heartlow : @drawable/heart }" />
+            app:layout_constraintStart_toEndOf="@+id/heart2" />
 
         <ImageView
             android:id="@+id/heart1"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/heart2"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tableLayout"
             app:srcCompat="@drawable/heart" />
+
+        <ImageView
+            android:id="@+id/heart2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1"
+            android:src="@{gameViewModel.heart == 1 ? @drawable/heartlow : @drawable/heart }"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/heart3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/heart1" />
 
         <TextView
             android:id="@+id/endGameText"
             android:layout_width="103dp"
             android:layout_height="32dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="28dp"
-            android:onClick="@{() -> gameViewModel.onGameFinish()}"
+            android:layout_marginBottom="16dp"
             android:layout_weight="1"
+            android:onClick="@{() -> gameViewModel.onGameFinish()}"
             android:text="@string/endText"
             android:textSize="@dimen/gameTimeSize"
-            app:layout_constraintEnd_toEndOf="@+id/tableLayout"
-            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

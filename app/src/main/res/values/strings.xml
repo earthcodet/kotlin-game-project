@@ -20,7 +20,7 @@
     <string name="testScore">8000</string>
     <string name="gameDes">Find the smallest number</string>
     <string name="aboutTopic">ABOUT</string>
-    <string name="aboutDetail">แอพ least เป็นเกมส์หาตัวเลขน้อยที่สุดในเเวลา 1 นาที</string>
+    <string name="aboutDetail">แอพ least เป็นเกมส์หาตัวเลขน้อยที่สุดในเวลา 1 นาที และตอบผิดได้สูงสุด 3 ครั้ง</string>
     <string name="what_is_your_name">PANUWAT RUEHAROM 59160969</string>
 
     <string name="title"><![CDATA[<h3>HISTORY</h3>]]></string>
