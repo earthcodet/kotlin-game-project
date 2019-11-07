@@ -19,4 +19,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="testScore">8000</string>
     <string name="gameDes">Find the smallest number</string>
+    <string name="aboutTopic">ABOUT</string>
+    <string name="aboutDetail">แอพ least เป็นเกมส์หาตัวเลขน้อยที่สุดในเเวลา 1 นาที</string>
+    <string name="what_is_your_name">PANUWAT RUEHAROM 59160969</string>
 </resources>

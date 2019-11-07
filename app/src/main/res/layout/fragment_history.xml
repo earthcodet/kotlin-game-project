@@ -10,8 +10,8 @@
 
             <ImageView
                 android:id="@+id/iconHistory"
-                android:layout_width="171dp"
-                android:layout_height="0dp"
+                android:layout_width="124dp"
+                android:layout_height="132dp"
                 android:layout_marginTop="4dp"
                 android:src="@drawable/history"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -23,20 +23,21 @@
                 android:id="@+id/TopicText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:text="@string/historyText"
                 android:textSize="@dimen/font40sp"
                 app:layout_constraintEnd_toEndOf="@+id/iconHistory"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.512"
                 app:layout_constraintStart_toStartOf="@+id/iconHistory"
                 app:layout_constraintTop_toBottomOf="@+id/iconHistory" />
 
             <ScrollView
                 android:layout_width="370dp"
                 android:layout_height="321dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="25dp"
                 app:layout_constraintEnd_toEndOf="@+id/TopicText"
-                app:layout_constraintHorizontal_bias="0.431"
+                app:layout_constraintHorizontal_bias="0.422"
                 app:layout_constraintStart_toStartOf="@+id/TopicText"
                 app:layout_constraintTop_toBottomOf="@+id/TopicText">
 
@@ -46,6 +47,26 @@
                     android:layout_height="wrap_content"
                     android:gravity="center" />
             </ScrollView>
+
+            <Button
+                android:id="@+id/home_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/homeText"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/summit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/historyText"
+                app:layout_constraintBottom_toTopOf="@+id/home_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
