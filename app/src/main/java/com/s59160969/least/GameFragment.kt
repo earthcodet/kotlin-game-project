@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.snackbar.Snackbar
+import com.s59160969.least.database.LeastDatabase
 import com.s59160969.least.databinding.FragmentGameBinding
 
 /**
@@ -30,8 +31,14 @@ class GameFragment : Fragment() {
             R.layout.fragment_game,
             container,false)
         Log.i("GameFragment", "Called ViewModelProviders.of")
-        viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
+        val application = requireNotNull(this.activity).application
+        val dataSource = LeastDatabase.getInstance(application).leastDatabaseDAO
 
+        val viewModelFactory = GameViewModelFactory(dataSource, application)
+        viewModel = ViewModelProviders.of(
+            this, viewModelFactory).get(GameViewModel::class.java)
+
+        //viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
 
         viewModel.eventGameFinish.observe(this, Observer<Boolean> { hasFinished ->
             if (hasFinished) gameFinished()

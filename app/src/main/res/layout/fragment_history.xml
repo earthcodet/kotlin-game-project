@@ -35,34 +35,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ScrollView
-            android:id="@+id/scrollView2"
-            android:layout_width="match_parent"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/score_list"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/home_button"
+            app:layout_constraintBottom_toTopOf="@+id/clear_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/history_topic">
-
-            <TextView
-                android:id="@+id/historyText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@{historyViewModel.scoreString}" />
-        </ScrollView>
-
-        <Button
-            android:id="@+id/summit_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:onClick="@{() -> historyViewModel.onTestData()}"
-            android:text="@string/historyText"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/home_button" />
+            app:layout_constraintTop_toBottomOf="@+id/history_topic"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <Button
             android:id="@+id/home_button"
@@ -71,8 +52,7 @@
             android:layout_marginBottom="16dp"
             android:text="@string/homeText"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/summit_button"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/clear_button" />
 
         <Button
@@ -81,6 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="@string/clearText"
+            android:onClick="@{() -> historyViewModel.onClear()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/home_button"
             app:layout_constraintHorizontal_bias="0.5"

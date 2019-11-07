@@ -5,14 +5,16 @@ import android.content.res.Resources
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
+import android.widget.TextView
 import androidx.core.text.HtmlCompat
+import androidx.recyclerview.widget.RecyclerView
 import com.s59160969.least.database.LeastScore
 import java.text.SimpleDateFormat
 
 
 @SuppressLint("SimpleDateFormat")
 fun convertLongToDateString(systemTime: Long): String {
-    return SimpleDateFormat("EEEE MMM-dd-yyyy' Time: 'HH:mm")
+    return SimpleDateFormat("MM-dd-yyyy','HH:mm")
             .format(systemTime).toString()
 }
 

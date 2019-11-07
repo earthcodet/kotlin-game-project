@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.s59160969.least.database.LeastDatabase
 import com.s59160969.least.database.LeastDatabaseDAO
 import com.s59160969.least.databinding.FragmentGameBinding
@@ -36,8 +38,27 @@ class HistoryFragment : Fragment() {
         val historyViewModel = ViewModelProviders.of(
             this, viewModelFactory).get(HistoryViewModel::class.java)
 
+        val adaptor = HistoryAdaptor()
+        binding.scoreList.adapter = adaptor
+        historyViewModel.scores.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                adaptor.data = it
+            }
+        })
+
         binding.lifecycleOwner  = this
         binding.historyViewModel = historyViewModel
+
+        historyViewModel.showSnackbarEvent.observe(this, Observer {
+            if(it == true){
+                Snackbar.make(
+                    activity!!.findViewById(android.R.id.content),
+                    getString(R.string.cleared_database),
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                historyViewModel.doneShowingSnackbar()
+            }
+        })
         return binding.root
     }
 

@@ -4,6 +4,7 @@ import android.app.Application
 import android.view.animation.Transformation
 import com.s59160969.least.database.LeastDatabaseDAO
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.s59160969.least.database.LeastScore
@@ -13,28 +14,18 @@ import kotlin.math.log
 class HistoryViewModel (val database: LeastDatabaseDAO, application: Application) : AndroidViewModel(application) {
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-    private val scores = database.getAllScore()
+    val scores = database.getScoreBoard()
     val scoreString = Transformations.map(scores){scores ->
         formatDisplay(scores, application.resources)
     }
-    private var toScore = MutableLiveData<LeastScore?>()
-
-    init {
-        initializeTonight()
+    private var _showSnackbarEvent = MutableLiveData<Boolean>()
+    val showSnackbarEvent : LiveData<Boolean>
+        get() = _showSnackbarEvent
+    fun doneShowingSnackbar(){
+        _showSnackbarEvent.value = null
     }
 
-    private fun initializeTonight() {
-       uiScope.launch {
-           toScore.value = getToScoreFromDatabase()
-       }
-    }
 
-    private suspend fun getToScoreFromDatabase(): LeastScore? {
-        return withContext(Dispatchers.IO) {
-            var least = database.getToScore()
-            least
-        }
-    }
     fun onTestData(){
         uiScope.launch {
             val newLeastScore = LeastScore()
@@ -49,8 +40,23 @@ class HistoryViewModel (val database: LeastDatabaseDAO, application: Application
         }
     }
 
+    fun onClear(){
+        uiScope.launch {
+            clearHistory()
+            _showSnackbarEvent.value =  true
+        }
+    }
+
+    private suspend fun clearHistory() {
+        withContext(Dispatchers.IO){
+            database.clear()
+        }
+    }
+
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
     }
+
+
 }

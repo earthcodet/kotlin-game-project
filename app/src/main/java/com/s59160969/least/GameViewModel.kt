@@ -1,17 +1,16 @@
 package com.s59160969.least
 
+import android.app.Application
 import android.os.CountDownTimer
 import android.text.format.DateUtils
 import android.util.Log
-import android.view.View
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
-import com.google.android.material.snackbar.Snackbar
+import androidx.lifecycle.*
+import com.s59160969.least.database.LeastDatabaseDAO
+import com.s59160969.least.database.LeastScore
+import kotlinx.coroutines.*
 import java.util.*
 
-class GameViewModel : ViewModel() {
+class GameViewModel (val database: LeastDatabaseDAO, application: Application) : AndroidViewModel(application) {
     private val _score = MutableLiveData<Int>()
     val score:LiveData<Int>
         get() = _score
@@ -47,6 +46,10 @@ class GameViewModel : ViewModel() {
     val currentTimeString = Transformations.map(currentTime) { time ->
         "Time : ${DateUtils.formatElapsedTime(time)}"
     }
+
+    private var viewModelJob = Job()
+    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+
 
     companion object {
         private const val DONE = 0L
@@ -112,17 +115,19 @@ class GameViewModel : ViewModel() {
         super.onCleared()
         Log.i("GameViewModel", "GameViewModel destroyed!")
         timer.cancel()
+        viewModelJob.cancel()
     }
     fun onCorrect(){
         _score.value = (_score.value)?.plus(10)
 
     }
-    fun onInCorrect(){
+    fun onIncorrect(){
         _heart.value = (_heart.value)?.minus(1)
         if(_heart.value == 0) onGameFinish()
     }
 
     fun onGameFinish() {
+        InsertData()
         _eventGameFinish.value = true
     }
 
@@ -134,7 +139,7 @@ class GameViewModel : ViewModel() {
         }
         else {
             markIncorrect(value)
-            onInCorrect()
+            onIncorrect()
             return false
         }
     }
@@ -144,5 +149,16 @@ class GameViewModel : ViewModel() {
         }
         return value
     }
-
+    fun InsertData(){
+        uiScope.launch {
+            val newLeastScore = LeastScore()
+            insert(newLeastScore)
+        }
+    }
+    private suspend fun insert(score: LeastScore) {
+        withContext(Dispatchers.IO){
+            score.leastScore = _score.value?:0
+            database.insert(score)
+        }
+    }
 }

@@ -9,4 +9,7 @@
     <color name="postScoreColor">#f0a30a</color>
     <color name="playAgainColor">#54694d</color>
     <color name="homeColor">#3a4735</color>
+    <color name="rankingNo1">#e3b10b</color>
+    <color name="rankingNo2">#cacdd4</color>
+    <color name="rankingNo3">#d6802e</color>
 </resources>

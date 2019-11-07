@@ -12,7 +12,7 @@
     <string name="youScoreText">YOU SCORE</string>
     <string name="postScoreText">POST SCORE</string>
     <string name="playAgainText">PLAY AGAIN</string>
-    <string name="historyText">HISTORY</string>
+    <string name="historyText">SCORE BOARD</string>
     <string name="shareText">ฉันได้คะแนน %1$d จากแอพ least!</string>
     <string name="homeText">HOME</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -27,4 +27,5 @@
     <string name="date"><![CDATA[<b>Date:</b>]]></string>
     <string name="score"><![CDATA[<b>Score:</b>]]></string>
     <string name="clearText">CLEAR</string>
+    <string name="cleared_database">All your data is gone forever</string>
 </resources>

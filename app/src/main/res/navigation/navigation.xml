@@ -11,10 +11,12 @@
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@+id/homeFragment" />
         <action
             android:id="@+id/action_homeFragment_to_historyFragment"
-            app:destination="@id/historyFragment" />
+            app:destination="@id/historyFragment"
+            app:popUpTo="@+id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -34,7 +36,8 @@
             app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_scoreFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@+id/homeFragment" />
         <argument
             android:name="scoreGame"
             app:argType="integer" />
@@ -45,7 +48,8 @@
         android:label="HistoryFragment" >
         <action
             android:id="@+id/action_historyFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@+id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -54,6 +58,7 @@
         tools:layout="@layout/fragment_about" >
         <action
             android:id="@+id/action_aboutFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@+id/homeFragment" />
     </fragment>
 </navigation>
