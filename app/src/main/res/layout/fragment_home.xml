@@ -14,39 +14,38 @@
             android:id="@+id/imageView"
             android:layout_width="170dp"
             android:layout_height="0dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="52dp"
             android:src="@drawable/home"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintHorizontal_bias="0.539"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/gameNameText"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_marginTop="32dp"
+            android:layout_width="231dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="@string/gameNameText"
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/imageView"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.688"
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/gameDescribeText"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="284dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="32dp"
             android:gravity="center"
             android:text="@string/gameDescribeText"
             android:textColor="@android:color/black"
             android:textSize="@dimen/gameTimeSize"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/gameNameText"
-            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="@+id/gameNameText"
             app:layout_constraintTop_toBottomOf="@+id/gameNameText"
             tools:text="@string/gameDescribeText" />
@@ -55,12 +54,13 @@
             android:id="@+id/startGameButton"
             android:layout_width="168dp"
             android:layout_height="46dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="36dp"
             android:background="@color/startColor"
             android:text="@string/startButtonText"
             android:textColor="@color/White"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/gameDescribeText"
+            app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="@+id/gameDescribeText"
             app:layout_constraintTop_toBottomOf="@+id/gameDescribeText" />
 
@@ -69,15 +69,16 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="168dp"
             android:layout_height="46dp"
-            android:layout_marginTop="20dp"
             android:background="@color/chartColor"
             android:shadowColor="@color/chartColor"
             android:text="@string/chartText"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/startGameButton"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/startGameButton"
-            app:layout_constraintTop_toBottomOf="@+id/startGameButton" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/gameDescribeText"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="@+id/gameDescribeText"
+            app:layout_constraintTop_toBottomOf="@+id/startGameButton"
+            app:layout_constraintVertical_bias="0.194" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

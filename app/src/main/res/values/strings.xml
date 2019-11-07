@@ -26,4 +26,5 @@
     <string name="title"><![CDATA[<h3>HISTORY</h3>]]></string>
     <string name="date"><![CDATA[<b>Date:</b>]]></string>
     <string name="score"><![CDATA[<b>Score:</b>]]></string>
+    <string name="clearText">CLEAR</string>
 </resources>

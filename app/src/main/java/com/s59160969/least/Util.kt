@@ -19,7 +19,7 @@ fun convertLongToDateString(systemTime: Long): String {
 fun formatDisplay(nights: List<LeastScore>, resources: Resources): Spanned {
     val sb = StringBuilder()
     sb.apply {
-        append(resources.getString(R.string.title))
+        //append(resources.getString(R.string.title))
         nights.forEach {
             append("<br>")
             append(resources.getString(R.string.date))

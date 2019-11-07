@@ -44,6 +44,7 @@ class HistoryViewModel (val database: LeastDatabaseDAO, application: Application
 
     private suspend fun insert(score: LeastScore) {
         withContext(Dispatchers.IO){
+            score.leastScore = 30
             database.insert(score)
         }
     }
