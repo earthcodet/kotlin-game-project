@@ -36,6 +36,7 @@ class HistoryFragment : Fragment() {
         val historyViewModel = ViewModelProviders.of(
             this, viewModelFactory).get(HistoryViewModel::class.java)
 
+        binding.lifecycleOwner  = this
         binding.historyViewModel = historyViewModel
         return binding.root
     }

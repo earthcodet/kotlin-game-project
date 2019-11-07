@@ -22,4 +22,8 @@
     <string name="aboutTopic">ABOUT</string>
     <string name="aboutDetail">แอพ least เป็นเกมส์หาตัวเลขน้อยที่สุดในเเวลา 1 นาที</string>
     <string name="what_is_your_name">PANUWAT RUEHAROM 59160969</string>
+
+    <string name="title"><![CDATA[<h3>HISTORY</h3>]]></string>
+    <string name="date"><![CDATA[<b>Date:</b>]]></string>
+    <string name="score"><![CDATA[<b>Score:</b>]]></string>
 </resources>
