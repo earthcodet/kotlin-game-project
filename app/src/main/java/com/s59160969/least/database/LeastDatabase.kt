@@ -13,7 +13,7 @@ abstract class LeastDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: LeastDatabase? = null
 
-        fun geInstance(context: Context):LeastDatabase{
+        fun getInstance(context: Context):LeastDatabase{
             synchronized(this){
                 var instance = INSTANCE
 
