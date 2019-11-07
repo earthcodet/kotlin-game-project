@@ -11,5 +11,5 @@ interface LeastDatabaseDAO {
     fun insert(least: LeastScore)
 
     @Query("SELECT * FROM data_least_table ORDER BY leastId DESC")
-    fun getAllNights(): LiveData<List<LeastScore>>
+    fun getAllScore(): LiveData<List<LeastScore>>
 }
