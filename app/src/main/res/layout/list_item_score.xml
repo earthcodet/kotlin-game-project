@@ -12,7 +12,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:topBackgroundScore="@{least}">
 
         <TextView
             app:scoreString="@{least}"
@@ -54,7 +55,7 @@
 
         <ImageView
             android:id="@+id/image"
-            app:scoreImage="@{least}"
+            app:firstScoreImage="@{least}"
             android:layout_width="47dp"
             android:layout_height="32dp"
             android:layout_marginTop="8dp"
