@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.s59160969.least.database.LeastDatabase
@@ -25,9 +26,6 @@ class HistoryFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentHistoryBinding>(inflater,
             R.layout.fragment_history,container,false)
-        binding.homeButton.setOnClickListener {view:View ->
-                    view.findNavController().navigate(R.id.action_historyFragment_to_homeFragment)
-                }
 
         val application = requireNotNull(this.activity).application
         val dataSource = LeastDatabase.getInstance(application).leastDatabaseDAO
@@ -38,6 +36,12 @@ class HistoryFragment : Fragment() {
             this, viewModelFactory).get(HistoryViewModel::class.java)
 
         val adapter = HistoryAdaptor()
+        historyViewModel.eventHome.observe(this, Observer {
+            if(it){
+                findNavController().navigate(R.id.action_historyFragment_to_homeFragment)
+                historyViewModel.onHomeInComplete()
+            }
+        })
         binding.scoreList.adapter = adapter
         historyViewModel.scores.observe(viewLifecycleOwner, Observer {
             it?.let {

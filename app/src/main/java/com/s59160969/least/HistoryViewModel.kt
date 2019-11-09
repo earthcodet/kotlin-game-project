@@ -15,9 +15,24 @@ class HistoryViewModel (val database: LeastDatabaseDAO, application: Application
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     val scores = database.getScoreBoard()
+    private var _eventHome = MutableLiveData<Boolean>()
+    val eventHome : LiveData<Boolean>
+        get() = _eventHome
+
+    init {
+        _eventHome.value = false
+    }
+
+    fun onHome(){
+        _eventHome.value = true
+    }
+    fun onHomeInComplete(){
+        _eventHome.value = false
+    }
     private var _showSnackbarEvent = MutableLiveData<Boolean>()
     val showSnackbarEvent : LiveData<Boolean>
         get() = _showSnackbarEvent
+
     fun doneShowingSnackbar(){
         _showSnackbarEvent.value = null
     }
