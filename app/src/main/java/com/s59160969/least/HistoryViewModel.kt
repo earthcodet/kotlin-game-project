@@ -15,29 +15,11 @@ class HistoryViewModel (val database: LeastDatabaseDAO, application: Application
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     val scores = database.getScoreBoard()
-    val scoreString = Transformations.map(scores){scores ->
-        formatDisplay(scores, application.resources)
-    }
     private var _showSnackbarEvent = MutableLiveData<Boolean>()
     val showSnackbarEvent : LiveData<Boolean>
         get() = _showSnackbarEvent
     fun doneShowingSnackbar(){
         _showSnackbarEvent.value = null
-    }
-
-
-    fun onTestData(){
-        uiScope.launch {
-            val newLeastScore = LeastScore()
-            insert(newLeastScore)
-        }
-    }
-
-    private suspend fun insert(score: LeastScore) {
-        withContext(Dispatchers.IO){
-            score.leastScore = 30
-            database.insert(score)
-        }
     }
 
     fun onClear(){

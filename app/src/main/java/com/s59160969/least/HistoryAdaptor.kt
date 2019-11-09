@@ -1,69 +1,54 @@
 package com.s59160969.least
 
-import android.annotation.SuppressLint
-import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.s59160969.least.database.LeastScore
+import com.s59160969.least.databinding.ListItemScoreBinding
 
-class HistoryAdaptor:RecyclerView.Adapter<HistoryAdaptor.ViewHolder>()  {
-    var data = listOf<LeastScore>()
-        set(value){
-            field = value
-            notifyDataSetChanged()
-        }
-    class ViewHolder private constructor(itemView: View): RecyclerView.ViewHolder(itemView){
-        val score:TextView = itemView.findViewById(R.id.score)
-        val date:TextView = itemView.findViewById(R.id.date)
-        val image:ImageView = itemView.findViewById(R.id.image)
-        val ranking:TextView = itemView.findViewById(R.id.ranking)
-       // val layout:View = itemView.findViewById(R.id.containerId)
-        companion object {
-            fun from(parent: ViewGroup): ViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater.inflate(R.layout.list_item_score, parent, false)
-                return ViewHolder(view)
-            }
-        }
-    }
+class HistoryAdaptor: ListAdapter<LeastScore, HistoryAdaptor.ViewHolder>(LeastScoreDiffCallback())  {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
-
-    override fun getItemCount() = data.count()
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = data[position]
-        holder.bind(item, position)
-
+        val item = getItem(position)
+        holder.bind(item)
+        updateIndexScore()
     }
+    class ViewHolder private constructor(val binding: ListItemScoreBinding): RecyclerView.ViewHolder(binding.root){
+        fun bind(item: LeastScore) {
+//           binding.date.text = convertLongToDateString(item.date)
+//           binding.score.text = "${item.leastScore} score"
+//           binding.ranking.text = (position + 1).toString()
+//           when(position+1){
+//               1 -> binding.image.setImageResource(R.drawable.medal)
+//               else -> binding.image.visibility = View.GONE
+//           }
+           //val  arr = listOf(item,position)
 
-    @SuppressLint("ResourceAsColor")
-    fun ViewHolder.bind(item: LeastScore, position: Int) {
-        val res = itemView.context.resources
-        date.text = convertLongToDateString(item.date)
-        score.text = "${item.leastScore} score"
-        ranking.text = (position + 1).toString()
-        when(position+1){
-            1 -> image.setImageResource(R.drawable.medal)
-                    //layout.setBackgroundColor(R.color.rankingNo1)}
-//            2 -> layout.setBackgroundColor(R.color.rankingNo2)
-//            3 -> layout.setBackgroundColor(R.color.rankingNo3)
-            else -> image.visibility = View.GONE
+            binding.least = item
+            binding.executePendingBindings()
+       }
+        companion object {
+            fun from(parent: ViewGroup): ViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding =
+                    ListItemScoreBinding.inflate(layoutInflater, parent, false)
+                return ViewHolder(binding)
+            }
         }
-//        if (position + 1 == 1) {
-//            image.setImageResource(R.drawable.medal)
-//            layout.setBackgroundColor(Color.parseColor("#e3b10b"))
-//        } else {
-//            image.visibility = View.GONE
-//        }
-//        layout
+    }
+}
+
+
+class LeastScoreDiffCallback : DiffUtil.ItemCallback<LeastScore>() {
+    override fun areItemsTheSame(oldItem: LeastScore, newItem: LeastScore): Boolean {
+        return oldItem.leastId == newItem.leastId
     }
 
-
-
+    override fun areContentsTheSame(oldItem: LeastScore, newItem: LeastScore): Boolean {
+        return  oldItem == newItem
+    }
 }

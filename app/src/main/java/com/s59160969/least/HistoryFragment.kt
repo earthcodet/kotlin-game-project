@@ -12,8 +12,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.s59160969.least.database.LeastDatabase
-import com.s59160969.least.database.LeastDatabaseDAO
-import com.s59160969.least.databinding.FragmentGameBinding
 import com.s59160969.least.databinding.FragmentHistoryBinding
 
 /**
@@ -25,11 +23,10 @@ class HistoryFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentHistoryBinding>(inflater,
             R.layout.fragment_history,container,false)
-            binding.homeButton.setOnClickListener { view:View ->
-                binding.homeButton.setOnClickListener {view:View ->
+        binding.homeButton.setOnClickListener {view:View ->
                     view.findNavController().navigate(R.id.action_historyFragment_to_homeFragment)
                 }
-            }
+
         val application = requireNotNull(this.activity).application
         val dataSource = LeastDatabase.getInstance(application).leastDatabaseDAO
 
@@ -38,11 +35,12 @@ class HistoryFragment : Fragment() {
         val historyViewModel = ViewModelProviders.of(
             this, viewModelFactory).get(HistoryViewModel::class.java)
 
-        val adaptor = HistoryAdaptor()
-        binding.scoreList.adapter = adaptor
+        val adapter = HistoryAdaptor()
+        binding.scoreList.adapter = adapter
         historyViewModel.scores.observe(viewLifecycleOwner, Observer {
             it?.let {
-                adaptor.data = it
+                adapter.submitList(it)
+                resetIndexScore()
             }
         })
 

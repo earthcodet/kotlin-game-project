@@ -4,7 +4,7 @@ package com.s59160969.least
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain position copy of the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -31,7 +31,7 @@ import java.io.IOException
 
 
 /**
- * This is not meant to be a full set of tests. For simplicity, most of your samples do not
+ * This is not meant to be position full set of tests. For simplicity, most of your samples do not
  * include tests. However, when building the Room, it is helpful to make sure it works before
  * adding the UI.
  */
