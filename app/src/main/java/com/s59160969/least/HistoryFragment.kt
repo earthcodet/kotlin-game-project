@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.s59160969.least.database.LeastDatabase
 import com.s59160969.least.databinding.FragmentHistoryBinding
@@ -39,7 +40,8 @@ class HistoryFragment : Fragment() {
         binding.scoreList.adapter = adapter
         historyViewModel.scores.observe(viewLifecycleOwner, Observer {
             it?.let {
-                adapter.addHeaderAndSubmitList(it)
+                //adapter.addHeaderAndSubmitList(it)
+                adapter.submitList(it)
                 resetIndexScore()
             }
         })
@@ -57,6 +59,7 @@ class HistoryFragment : Fragment() {
                 historyViewModel.doneShowingSnackbar()
             }
         })
+
         return binding.root
     }
 
