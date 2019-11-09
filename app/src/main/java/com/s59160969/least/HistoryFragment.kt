@@ -39,7 +39,7 @@ class HistoryFragment : Fragment() {
         binding.scoreList.adapter = adapter
         historyViewModel.scores.observe(viewLifecycleOwner, Observer {
             it?.let {
-                adapter.submitList(it)
+                adapter.addHeaderAndSubmitList(it)
                 resetIndexScore()
             }
         })

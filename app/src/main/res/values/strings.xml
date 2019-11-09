@@ -28,4 +28,5 @@
     <string name="score"><![CDATA[<b>Score:</b>]]></string>
     <string name="clearText">CLEAR</string>
     <string name="cleared_database">All your data is gone forever</string>
+    <string name="score_board">Score Board</string>
 </resources>

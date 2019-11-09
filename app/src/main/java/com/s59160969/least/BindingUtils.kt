@@ -27,7 +27,9 @@ fun TextView.setRankingScoreString(item: LeastScore) {
 @BindingAdapter("firstScoreImage")
 fun ImageView.setFirstScoreImage(item: LeastScore) {
    when (getIndexScoreboard()) {
-        1 -> setImageResource(R.drawable.medal)
+        1 -> setImageResource(R.drawable.trophy_no1)
+        2 -> setImageResource(R.drawable.trophy_no2)
+        3 -> setImageResource(R.drawable.trophy_no3)
         else -> visibility = View.GONE
     }
 }

@@ -12,4 +12,5 @@
     <color name="rankingNo1">#e3b10b</color>
     <color name="rankingNo2">#cacdd4</color>
     <color name="rankingNo3">#d6802e</color>
+    <color name="white_text_color">#f0f0f0</color>
 </resources>

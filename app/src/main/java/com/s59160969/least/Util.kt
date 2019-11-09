@@ -9,7 +9,7 @@ fun convertLongToDateString(systemTime: Long): String {
     return SimpleDateFormat("MM-dd-yyyy','HH:mm")
             .format(systemTime).toString()
 }
-var indexScoreBoard  = 1
+var indexScoreBoard  = 0
 
 fun getIndexScoreboard()=indexScoreBoard
 
@@ -18,5 +18,5 @@ fun updateIndexScore(){
 }
 
 fun resetIndexScore(){
-    indexScoreBoard = 1
+    indexScoreBoard = 0
 }
