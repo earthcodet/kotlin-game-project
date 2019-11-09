@@ -9,6 +9,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.snackbar.Snackbar
 import com.s59160969.least.databinding.FragmentHomeBinding
+import timber.log.Timber
 
 /**
  * A simple [Fragment] subclass.
@@ -41,5 +42,23 @@ class HomeFragment : Fragment() {
             view!!.findNavController())
                 || super.onOptionsItemSelected(item)
     }
+    override fun onStart() {
+        super.onStart()
+        Timber.i("onStart Called")
+    }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Timber.i("onCreate Called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume Called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("onDestroy Called")
+    }
 }

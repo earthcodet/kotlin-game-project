@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.s59160969.least.database.LeastDatabase
 import com.s59160969.least.databinding.FragmentHistoryBinding
+import timber.log.Timber
 
 /**
  * A simple [Fragment] subclass.
@@ -62,6 +63,24 @@ class HistoryFragment : Fragment() {
 
         return binding.root
     }
+    override fun onStart() {
+        super.onStart()
+        Timber.i("onStart Called")
+    }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Timber.i("onCreate Called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume Called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("onDestroy Called")
+    }
 
 }

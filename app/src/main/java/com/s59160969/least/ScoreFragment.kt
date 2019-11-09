@@ -15,6 +15,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.s59160969.least.databinding.FragmentGameBinding
 import com.s59160969.least.databinding.FragmentScoreBinding
+import timber.log.Timber
 
 /**
  * A simple [Fragment] subclass.
@@ -68,4 +69,24 @@ class ScoreFragment : Fragment() {
         startActivity(getShareIntent())
     }
 
+
+    override fun onStart() {
+        super.onStart()
+        Timber.i("onStart Called")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Timber.i("onCreate Called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume Called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("onDestroy Called")
+    }
 }
