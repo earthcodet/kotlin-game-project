@@ -21,9 +21,9 @@ class AboutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = inflate(inflater, R.layout.fragment_about, container,false)
-        binding.homeButton.setOnClickListener {view:View ->
-            view.findNavController().navigate(R.id.action_aboutFragment_to_homeFragment)
-        }
+//        binding.homeButton.setOnClickListener {view:View ->
+//            view.findNavController().navigate(R.id.action_aboutFragment_to_homeFragment)
+//        }
         return binding.root
     }
 }

@@ -5,7 +5,7 @@
     <string name="gameDescribeText">หาตัวเลขที่น้อยที่สุดกันเถอะ</string>
     <string name="gameNameText">LEAST</string>
     <string name="startButtonText">START</string>
-    <string name="chartText">สถิติ</string>
+    <string name="chartText">SCOREBOARD</string>
     <string name="scoreText">Score : 0</string>
     <string name="levelText">Level</string>
     <string name="endText">End game</string>
@@ -28,7 +28,13 @@
     <string name="score"><![CDATA[<b>Score:</b>]]></string>
     <string name="clearText">CLEAR</string>
     <string name="cleared_database">All your data is gone forever</string>
-    <string name="score_board">Score Board</string>
     <string name="no_score">No. Score</string>
+    <string name="ruler_1">กติกา การเล่นเกมนี้</string>
+    <string name="ruler_2">1.หาตัวเลขน้อยที่สุดให้เจอ</string>
+    <string name="ruler_3">2.ตอบผิดได้ไม่เกิน 3 ครั้ง</string>
+    <string name="ruler_4">3.มีเวลาเล่นเกมส์ให้ 1 นาที</string>
+    <string name="ruler_5">ขอให้โชคดี</string>
+    <string name="least_game">least game เป็นเกมส์ที่เน้นฝึกการสังเกตุและความไวในการหาตัวเลข</string>
+    <string name="rules">RULES</string>
 
 </resources>

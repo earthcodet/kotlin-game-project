@@ -36,12 +36,7 @@ class HistoryFragment : Fragment() {
             this, viewModelFactory).get(HistoryViewModel::class.java)
 
         val adapter = HistoryAdaptor()
-        historyViewModel.eventHome.observe(this, Observer {
-            if(it){
-                findNavController().navigate(R.id.action_historyFragment_to_homeFragment)
-                historyViewModel.onHomeInComplete()
-            }
-        })
+
         binding.scoreList.adapter = adapter
         historyViewModel.scores.observe(viewLifecycleOwner, Observer {
             it?.let {
